@@ -32,8 +32,8 @@ def NN_complete_search(X, Y, input_dim, output_dim, stochastic = False, batch_si
                         max_score = nn_score;
                         best_nn = net;
                 else:
-                    nn_loss = nn.loss;
-                    nn_dims = nn.dims;
+                    nn_loss = net.loss;
+                    nn_dims = net.dims;
                     if nn_loss < min_loss:
                         min_loss = nn_loss;
                         best_nn = net;
