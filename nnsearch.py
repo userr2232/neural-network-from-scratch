@@ -3,12 +3,14 @@ from nn import NN;
 from itertools import product
 import numpy as np
 
-# X, Y es el dataset
-# input_dim, output_dim son las dimensiones de las layers de input y output respectivamente
-# stochastic indica si el algoritmo de backpropagation va a usar todo el dataset o subsets random
-# batch_size solo se usa si stochastic es True e indica el tamaño de los batches (subsets random para training)
-# max_dim indica la dimensión máxima de cualquiera de las hidden layers
-# max_hidden_layers indica la mayor cantidad de hidden layers con las que se debe probar (se prueba con un rango entre 1 y max_hidden_layers)
+
+# This algorithm searches for the best neural network
+# X, Y: the dataset
+# input_dim, output_dim: are the dimensions of the input and output layers respectively
+# stochatic: whether to use SGD or not
+# batch_size: batch size (only use when stochastic=True)
+# max_dim: max dimension of any hidden layer
+# max_hidden_layers: max number of hidden layers of a nn in the search space
 def NN_complete_search(X, Y, input_dim, output_dim, stochastic = False, batch_size = 500, max_dim = 5, max_hidden_layers = 2):
     criteria = ['accuracy', 'precision', 'recall', 'f1_score', None ];
     results = [];
